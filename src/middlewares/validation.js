@@ -63,5 +63,5 @@ module.exports = {
     registerValidation,
     loginValidation,
     taskValidation,
-    //   emailValidation
+    projectValidation
 };

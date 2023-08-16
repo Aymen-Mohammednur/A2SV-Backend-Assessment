@@ -7,6 +7,8 @@ router.post("/", verifyToken, taskController.createTask);
 
 router.put("/assign-user", verifyToken, taskController.assignTaskToUser);
 
+router.get('/:id', verifyToken, taskController.getSingleUserTask)
+
 router.get("/", verifyToken, taskController.getUserTasks);
 
 router.put("/:id", verifyToken, taskController.editTask);

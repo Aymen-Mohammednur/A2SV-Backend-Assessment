@@ -32,16 +32,16 @@ const getUserTasks = async (req, res) => {
     }
 };
 
-// const getSingleUsertask = async (req, res) => {
-//     try {
-//         const id = req.user._id;
-//         const tasks = await task.find({ userId: id, _id: req.params.id }).sort({ created_at: -1 });
-//         res.status(200).json(tasks)
-//         return;
-//     } catch (error) {
-//         res.json({ message: error });
-//     }
-// };
+const getSingleUserTask = async (req, res) => {
+    try {
+        const id = req.user._id;
+        const task = await Task.find({ creator_id: id, _id: req.params.id });
+        res.status(200).json(task)
+        return;
+    } catch (error) {
+        res.json({ message: error });
+    }
+};
 
 
 const editTask = async (req, res) => {
@@ -118,6 +118,6 @@ module.exports = {
     editTask,
     deleteTask,
     getUserTasks,
-    assignTaskToUser
-    // getSingleUsertask
+    assignTaskToUser,
+    getSingleUserTask
 };
